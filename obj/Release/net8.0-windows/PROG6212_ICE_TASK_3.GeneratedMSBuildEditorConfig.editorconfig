@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0-windows
+build_property.TargetPlatformMinVersion = 7.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ICE3
+build_property.ProjectDir = C:\Users\NarainT\source\repos\prog6212-ice-3-ST10249838-main\prog6212-ice-3-ST10249838\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

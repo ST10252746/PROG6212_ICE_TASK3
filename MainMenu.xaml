@@ -1,0 +1,107 @@
+﻿<Window x:Class="ICE3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prog6212_ice_3_ST10249838"
+        mc:Ignorable="d"
+        Title="Personal Finance Tracker" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="10">
+            Personal Finance Tracker
+        </TextBlock>
+
+        <!-- Left Panel: Add Transaction and Set Budget -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <GroupBox Header="Add Transaction" Margin="0,0,0,10">
+                <StackPanel>
+                    <TextBlock Text="Amount:"/>
+                    <TextBox x:Name="AmountTextBox" Margin="0,5"/>
+                    <TextBlock Text="Date:"/>
+                    <DatePicker x:Name="DatePicker" Margin="0,5"/>
+                    <TextBlock Text="Type:"/>
+                    <ComboBox x:Name="TypeComboBox" Margin="0,5">
+                        <ComboBoxItem Content="Income"/>
+                        <ComboBoxItem Content="Expense"/>
+                    </ComboBox>
+                    <TextBlock Text="Category:"/>
+                    <TextBox x:Name="CategoryTextBox" Margin="0,5"/>
+                    <TextBlock Text="Description:"/>
+                    <TextBox x:Name="DescriptionTextBox" Margin="0,5"/>
+                    <Button Content="Add Transaction" Click="AddTransaction_Click" Margin="0,10"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Set Budget" Margin="10,0">
+                <StackPanel>
+                    <TextBlock Text="Month:"/>
+                    <ComboBox x:Name="MonthComboBox" Margin="0,5">
+                        <ComboBoxItem Content="January"/>
+                        <ComboBoxItem Content="February"/>
+                        <ComboBoxItem Content="March"/>
+                        <ComboBoxItem Content="April"/>
+                        <ComboBoxItem Content="May"/>
+                        <ComboBoxItem Content="June"/>
+                        <ComboBoxItem Content="July"/>
+                        <ComboBoxItem Content="August"/>
+                        <ComboBoxItem Content="September"/>
+                        <ComboBoxItem Content="October"/>
+                        <ComboBoxItem Content="November"/>
+                        <ComboBoxItem Content="December"/>
+                    </ComboBox>
+                    <TextBlock Text="Year:"/>
+                    <TextBox x:Name="YearTextBox" Margin="0,5"/>
+                    <TextBlock Text="Income Goal:"/>
+                    <TextBox x:Name="IncomeGoalTextBox" Margin="0,5"/>
+                    <TextBlock Text="Expense Limit:"/>
+                    <TextBox x:Name="ExpenseLimitTextBox" Margin="0,5"/>
+                    <Button Content="Set Budget" Click="SetBudget_Click" Margin="0,10"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <!-- Right Panel: Display Transactions and Reports -->
+        <TabControl Grid.Row="1" Grid.Column="1" Margin="10">
+            <TabItem Header="Transactions">
+                <ListView x:Name="TransactionsListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"/>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                            <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}"/>
+                            <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}"/>
+                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Reports">
+                <StackPanel>
+                    <Button Content="Generate Monthly Report" Click="GenerateMonthlyReport_Click" Margin="0,10"/>
+                    <Button Content="Generate Category Report" Click="GenerateCategoryReport_Click" Margin="0,10"/>
+                    <Button Content="Track Budget Progress" Click="TrackBudgetProgress_Click" Margin="0,10"/>
+                    <Button Content="Identify Overspending" Click="IdentifyOverspending_Click" Margin="0,10"/>
+                    <Button Content="Predict Future Spending" Click="PredictFutureSpending_Click" Margin="0,10"/>
+                    <TextBox x:Name="ReportTextBox" Margin="0,10" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="200"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <!-- Footer -->
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10">
+            © 2024 Personal Finance Tracker
+        </TextBlock>
+    </Grid>
+</Window>
